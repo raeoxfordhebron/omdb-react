@@ -14,7 +14,7 @@ function App() {
     // make fetch request and store response
     const response = await fetch(`http://www.omdbapi.com/?apikey=${apiKey}&t=${searchTerm}`)
     // conver the response into a javascript object
-    const data = await response.jscon()
+    const data = await response.json()
     // update the movie state
     setMovie(data)
   }
@@ -22,8 +22,8 @@ function App() {
   return (
 
     <div className="App">
-      <Form/>
-      <MovieDisplay/>
+      <Form moviesearch={getMovie}/>
+      <MovieDisplay movie={movie}/>
     </div>
   );
 }
